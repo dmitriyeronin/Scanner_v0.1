@@ -106,6 +106,24 @@ class Bruteforcer:
             for row in reader:
                 result = {"login:pass": row[5], "mesg": row[7]}
                 vuln["results"].append(result)
-            print("::", vuln)
-            print()
         return vuln
+
+    @staticmethod
+    def add_to_report(vuln):
+        html_data = f'''
+        <tr>
+            <td valign="top" colspan="2" rowspan="{len(vuln["results"]) + 1}" class="line_1">Bruteforcer</td>
+            <td class="line_1">"login:pass"</td>
+            <td class="line_1">Мessage</td>
+            <td class="line_1"></td>
+        </tr>
+        '''
+        for result_note in vuln["results"]:
+            html_data += f'''
+            <tr>
+                <td>{result_note["login:pass"]}</td>
+                <td>{result_note["mesg"]}</td>
+                <td></td>
+            </tr>
+            '''
+        return html_data

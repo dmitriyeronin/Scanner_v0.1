@@ -22,3 +22,5 @@ if __name__ == '__main__':
     #pprint.pprint(hosts_data)
     r = Report(hosts_data)
     r.new_report()
+    #r.save_hosts_data()
+    #r.compere()

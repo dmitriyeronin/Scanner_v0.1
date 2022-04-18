@@ -1,12 +1,33 @@
-import pprint
+# import pprint
+import json
+from datetime import datetime
+from port_scanner import PortScanner
+from bruteforcer import Bruteforcer
+
 
 class Report:
     def __init__(self, data):
         self.output_file = "report.html"
         self.hosts_data = data
+        self.path = "/home/user/PycharmProjects/Scanner_v0.1/Results/"
+
+    def save_hosts_data(self):
+        date_format = "%d-%m-%Y_%H:%M"
+        file = f"scan_{datetime.now().strftime(date_format)}.json"
+        with open(self.path + file, 'w') as f:
+            json.dump(self.hosts_data, f)
+        with open(self.path + "last_scan.json", 'w') as f:
+            json.dump(self.hosts_data, f)
 
     def new_report(self):
+        compere = True
         with open(self.output_file, 'w') as f:
+            if compere:
+                try:
+                    ls_f = open(self.path + "last_scan.json", "r")
+                    ls_data = json.load(ls_f)
+                except FileNotFoundError:
+                    compere = False
             html_data = '''
                <!doctype html>
                 <html>
@@ -228,9 +249,17 @@ class Report:
                     <h1>Scan report</h1>
                 '''
             for host_data in self.hosts_data:
+                host_cmp = ""
+                if compere:
+                    host_cmp = "new"
+                    for ls_host_data in ls_data:
+                        if ls_host_data["host_address"]["address"] == host_data["host_address"]["address"]:
+                            host_cmp = "old"
+                            break
+
                 html_data += f'''
                 <a name="host_{host_data["host_address"]["address"]}"></a>
-                <h2 class={host_data["vuln_level"]}>{host_data["host_address"]["address"]}</h2>
+                <h2 class={host_data["vuln_level"]}>{host_data["host_address"]["address"]} ({host_cmp})</h2>
                 <div id="hostblock_{host_data["host_address"]["address"]}">   
                 '''
                 if host_data["host_names"]:
@@ -277,17 +306,24 @@ class Report:
                     <tbody>
                 '''
                 for port in host_data["open_ports"]:
+                    port_cmp = ""
+                    if compere:
+                        port_cmp = "new"
+                        for ls_port in ls_host_data["open_ports"]:
+                            if ls_port["port_id"] == port["port_id"]:
+                                port_cmp = "old"
+                                break
                     if port["score"] == 0:
                         level = "no"
-                    if port["score"] > 0 and port["score"] < 3:
+                    if 0 < port["score"] < 3:
                         level = "low"
-                    if port["score"] > 3 and port["score"] < 7:
+                    if 3 < port["score"] < 7:
                         level = "mid"
                     if port["score"] > 7:
                         level = "high"
                     html_data += f'''
                     <tr>
-                        <td class="{level}">{port["port_id"]}</td>
+                        <td class="{level}">{port["port_id"]} ({port_cmp})</td>
                         <td class="{level}">{port["service"]}</td>
                         <td class="{level}">{port["product"]}</td>
                         <td class="{level}">{port["version"]}</td>
@@ -297,62 +333,17 @@ class Report:
                     '''
                     for vuln in port["vulns"]:
                         if vuln["module"] == "vulners":
-                            html_data += f'''
-                            <tr>
-                                <td valign="top" colspan="2" rowspan="{len(vuln["results"])+1}" class="line_1">Vulners</td>
-                                <td class="line_1">Name</td>
-                                <td class="line_1" colspan="2">Database : ID : IsExploit</td>
-                                <td class="line_1">CVSS</td>
-                            </tr>
-                            '''
-                            for result_note in vuln["results"]:
-                                if result_note["cvss"] > 0 and result_note["cvss"] < 3:
-                                    level = "low_"
-                                if result_note["cvss"] > 3 and result_note["cvss"] < 7:
-                                    level = "mid_"
-                                if result_note["cvss"] > 7:
-                                    level = "high_"
-                                """if group is not "Other":
-                                    ref = "href=https://cve.report/" + group
-                                else:
-                                    ref = ""
-                                print("group:", group, "    len:", len(vuln["results"][group]))
-                                print()
-                                pprint.pprint(vuln["results"][group], depth=1)"""
-                                html_data += f'''
-                                <tr>
-                                    
-                                    <td>{result_note["cve_id"]}</td>
-                                    <td class="left" colspan="2">
-                                '''
-                                for cve_note in result_note["notes"]:
-                                    html_data += f'''
-                                        <a href="https://vulners.com/{cve_note["type"]}/{cve_note["id"]}">{cve_note["type"]} : {cve_note["id"]} : {cve_note["is_exploit"]}<br></a>
-                                    '''
-                                html_data += f'''
-                                    </td>
-                                    <td class="{level}">{result_note["cvss"]}</td>
-                                </tr>
-                                '''
+                            html_data += PortScanner.add_to_report(vuln)
                         if vuln["module"] == "bruteforcer":
-                            html_data += f'''
-                            <tr>
-                                <td valign="top" colspan="2" rowspan="{len(vuln["results"])+1}" class="line_1">Bruteforcer</td>
-                                <td class="line_1">"login:pass"</td>
-                                <td class="line_1">Мessage</td>
-                                <td class="line_1"></td>
-                            </tr>
-                            '''
-                            for result_note in vuln["results"]:
-                                html_data += f'''
-                                <tr>
-                                    <td>{result_note["login:pass"]}</td>
-                                    <td>{result_note["mesg"]}</td>
-                                    <td></td>
-                                </tr>
-                                '''
-
+                            html_data += Bruteforcer.add_to_report(vuln)
+                    html_data += f'''
+                    </tbody>
+                    </table>
+                    </div>
+                    '''
+            html_data += f'''
+            </body>
+            </html>
+            '''
+            ls_f.close()
             f.write(html_data)
-
-
-

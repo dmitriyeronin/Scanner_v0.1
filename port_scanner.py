@@ -9,7 +9,7 @@ class PortScanner:
         # TODO: Full path
 
         # self.scan_result = {}
-        #self.output_file = "/home/kali/nmap_output.xml"
+        # self.output_file = "/home/kali/nmap_output.xml"
         self.output_file = "nmap_output.xml"
 
         try:
@@ -44,11 +44,7 @@ class PortScanner:
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE
         )
-
-        # print(p)
-
         # TODO: Check errors (returncode = 0) and timeout
-
         return p
 
     def parsing(self):
@@ -163,3 +159,39 @@ class PortScanner:
             hosts_data.append(host_data)
 
         return hosts_data
+
+    @staticmethod
+    def add_to_report(vuln):
+        html_data = f'''
+        <tr>
+            <td valign="top" colspan="2" rowspan="{len(vuln["results"]) + 1}" class="line_1">Vulners</td>
+            <td class="line_1">Name</td>
+            <td class="line_1" colspan="2">Database : ID : IsExploit</td>
+            <td class="line_1">CVSS</td>
+        </tr>
+        '''
+        for result_note in vuln["results"]:
+            level = ""
+            if 0 < result_note["cvss"] < 3:
+                level = "low_"
+            if 3 < result_note["cvss"] < 7:
+                level = "mid_"
+            if result_note["cvss"] > 7:
+                level = "high_"
+            html_data += f'''
+            <tr>
+                <td>{result_note["cve_id"]}</td>
+                <td class="left" colspan="2">
+            '''
+            for cve_note in result_note["notes"]:
+                html_data += f'''
+                <a href="https://vulners.com/{cve_note["type"]}/{cve_note["id"]}">
+                    {cve_note["type"]} : {cve_note["id"]} : {cve_note["is_exploit"]}
+                <br></a>
+                '''
+            html_data += f'''
+                </td>
+                <td class="{level}">{result_note["cvss"]}</td>
+            </tr>
+            '''
+        return html_data
