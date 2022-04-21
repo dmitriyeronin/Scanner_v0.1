@@ -4,76 +4,72 @@
                 <head>
                     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
                     <style type="text/css">
-                        
-                        /* stylesheet screen */
-                        @media screen
-                        {
-                          body {
-                            font-family: Verdana, Helvetica, sans-serif;
-                            margin: 0px;
-                            background-color: #FFFFFF;
-                            color: #000000;
-                            text-align: center;
-                          }
-                          #container {
-                            text-align:left;
-                            margin: 10px auto;
-                            width: 90%;
-                          }
-                          h1 {
-                            font-family: Verdana, Helvetica, sans-serif;
-                            font-weight:bold;
-                            font-size: 14pt;
-                            color: #FFFFFF;
-                            background-color:#2A0D45;
-                            margin:10px 0px 0px 0px;
-                            padding:5px 4px 5px 4px;
-                            width: 100%;
-                            border:1px solid black;
-                            text-align: left;
-                          }
-                          h2 {
-                            font-family: Verdana, Helvetica, sans-serif;
-                            font-weight:bold;
-                            font-size: 11pt;
-                            color: #000000;
-                            margin:30px 0px 0px 0px;
-                            padding:4px;
-                            width: 100%;
-                            background-color:#F0F8FF;
-                            text-align: left;
-                          }
-                          h3 {
-                            font-family: Verdana, Helvetica, sans-serif;
-                            font-weight:bold;
-                            font-size: 10pt;
-                            color:#000000;
-                            background-color: #FFFFFF;
-                            width: 75%;
-                            text-align: left;
-                          }
-                          p {
-                            font-family: Verdana, Helvetica, sans-serif;
-                            font-size: 8pt;
-                            color:#000000;
-                            background-color: #FFFFFF;
-                            width: 75%;
-                            text-align: left;
-                          }
-                          p i {
-                            font-family: Verdana, Helvetica, sans-serif;
-                            font-size: 8pt;
-                            color:#000000;
-                            background-color: #CCCCCC;
-                          }
-                          ul {
-                            font-family: Verdana, Helvetica, sans-serif;
-                            font-size: 8pt;
-                            color:#000000;
-                            background-color: #FFFFFF;
-                            width: 75%;
-                            text-align: left;
-                          }
+                        body {
+    font-family: Verdana, Helvetica, sans-serif;
+    margin: 0px;
+    background-color: #FFFFFF;
+    color: #000000;
+    text-align: center;
+}
+#container {
+    text-align:left;
+    margin: 10px auto;
+    width: 90%;
+}
+h1 {
+    font-family: Verdana, Helvetica, sans-serif;
+    font-weight:bold;
+    font-size: 14pt;
+    color: #FFFFFF;
+    background-color:#2A0D45;
+    margin:10px 0px 0px 0px;
+    padding:5px 4px 5px 4px;
+    width: 100%;
+    border:1px solid black;
+    text-align: left;
+}
+h2 {
+    font-family: Verdana, Helvetica, sans-serif;
+    font-weight:bold;
+    font-size: 11pt;
+    color: #000000;
+    margin:30px 0px 0px 0px;
+    padding:4px;
+    width: 100%;
+    background-color:#F0F8FF;
+    text-align: left;
+}
+h3 {
+    font-family: Verdana, Helvetica, sans-serif;
+    font-weight:bold;
+    font-size: 10pt;
+    color:#000000;
+    background-color: #FFFFFF;
+    width: 75%;
+    text-align: left;
+}
+p {
+    font-family: Verdana, Helvetica, sans-serif;
+    font-size: 8pt;
+    color:#000000;
+    background-color: #FFFFFF;
+    width: 75%;
+    text-align: left;
+}
+p i {
+    font-family: Verdana, Helvetica, sans-serif;
+    font-size: 8pt;
+    color:#000000;
+    background-color: #CCCCCC;
+}
+ul {
+    font-family: Verdana, Helvetica, sans-serif;
+    font-size: 8pt;
+    color:#000000;
+    background-color: #FFFFFF;
+    width: 75%;
+    text-align: left;
+}
                           a {
                             font-family: Verdana, Helvetica, sans-serif;
                             text-decoration: none;
@@ -95,7 +91,7 @@
                           a:hover {
                             text-decoration: underline;
                           }
-                          
+
                           table {
                             width: 90%;
                             border:0px;
@@ -103,14 +99,14 @@
                             background-color: #ffffff;
                             margin:10px;
                           }
-                          
+
                           thead {
                             background-color: #555;
                             color: #FFFFFF;
                             font-size: 12pt;
                             font-weight:bold;
                           }
-                          
+
                           tbody tr:nth-child(odd) {
                               background-color: #fff;
                               font-size: 8pt;
@@ -120,34 +116,8 @@
                               background-color: #eee;
                               font-size: 8pt;
                             }
-                          
-                          }
-                          
-                          #menu li {
-                            display         : inline;
-                            margin          : 0;
-                            /*margin-right    : 10px;*/
-                            padding         : 0;
-                            list-style-type : none;
-                          }
-                          #menubox {
-                            position: fixed;
-                            bottom: 0px;
-                            right: 0px;
-                            width: 120px;
-                          }
-                          /* This section handle's IE's refusal to honor the fixed CSS attribute */
-                          * html div#menubox {
-                            position: absolute;
-                            top:expression(eval(
-                              document.compatMode && document.compatMode=='CSS1Compat') ?
-                              documentElement.scrollTop+(documentElement.clientHeight-this.clientHeight)
-                              : document.body.scrollTop +(document.body.clientHeight-this.clientHeight));
-                          }
-                          /* This fixes the jerky effect when scrolling in IE*/
-                          * html,* html body {
-                            background: #fff url(nosuchfile) fixed;
-                          }
+
+
                           .no {
                             color:#000000;
                             background-color: #b2ec5d;
@@ -192,7 +162,7 @@
                           }
                           .high_ {
                             color:#ff0000;
-                            
+
                             font-weight:bold;
                             font-size: 12pt;
                         }
@@ -219,7 +189,7 @@
                     <h1>Scan report</h1>
                 
                 <a name="host_127.0.0.1"></a>
-                <h2 class=>127.0.0.1 (old)</h2>
+                <h2 class=high>127.0.0.1 (old)</h2>
                 <div id="hostblock_127.0.0.1">   
                 <h3>Hostnames</h3>
                         <ul><li>localhost (PTR)</li></ul>
@@ -237,8 +207,8 @@
                         
                     <h3>Uptime</h3>
                     <ul>
-                            <li>815419 seconds</li>
-                            <li>Last boot: Tue Mar 22 08:52:44 2022</li>
+                            <li>7h 47min 23sec</li>
+                            <li>Last boot: Tue Mar 15 09:12:44 2022</li>
                         </ul>
                    
                 <table id="porttable_127.0.0.1">
@@ -264,14 +234,24 @@
                     </tr>
                     
         <tr>
-            <td valign="top" colspan="2" rowspan="29" class="line_1">Vulners</td>
+            <td class="line" rowspan="2" colspan="2">Warning</td>
+            <td class="line" colspan="3"></td>
+            <td class="line"></td>
+        </tr>
+        <tr>
+            <td colspan="3">http is not in allowed services in configuration file</td>
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td valign="top" colspan="2" rowspan="30" class="line_1">Vulners</td>
             <td class="line_1">Name</td>
             <td class="line_1" colspan="2">Database : ID : IsExploit</td>
             <td class="line_1">CVSS</td>
         </tr>
         
             <tr>
-                <td>E899CC4B-A3FD-5288-BB62-A4201F93FDCC</td>
+                <td>E899CC4B-A3FD-5288-BB62-A4201F93FDCC (Not fixed since previous scan)</td>
                 <td class="left" colspan="2">
             
                 <a href="https://vulners.com/githubexploit/E899CC4B-A3FD-5288-BB62-A4201F93FDCC">
@@ -283,7 +263,7 @@
             </tr>
             
             <tr>
-                <td>5DE1B404-0368-5986-856A-306EA0FE0C09</td>
+                <td>5DE1B404-0368-5986-856A-306EA0FE0C09 (Not fixed since previous scan)</td>
                 <td class="left" colspan="2">
             
                 <a href="https://vulners.com/githubexploit/5DE1B404-0368-5986-856A-306EA0FE0C09">
@@ -295,7 +275,7 @@
             </tr>
             
             <tr>
-                <td>CVE-2020-11984</td>
+                <td>CVE-2020-11984 (Not fixed since previous scan)</td>
                 <td class="left" colspan="2">
             
                 <a href="https://vulners.com/metasploit/MSF:ILITIES/UBUNTU-CVE-2020-11984/">
@@ -331,7 +311,7 @@
             </tr>
             
             <tr>
-                <td>CVE-2022-23943</td>
+                <td>CVE-2022-23943 (Not fixed since previous scan)</td>
                 <td class="left" colspan="2">
             
                 <a href="https://vulners.com/cve/CVE-2022-23943">
@@ -343,7 +323,7 @@
             </tr>
             
             <tr>
-                <td>CVE-2022-22720</td>
+                <td>CVE-2022-22720 (Not fixed since previous scan)</td>
                 <td class="left" colspan="2">
             
                 <a href="https://vulners.com/cve/CVE-2022-22720">
@@ -355,7 +335,7 @@
             </tr>
             
             <tr>
-                <td>CVE-2021-44790</td>
+                <td>CVE-2021-44790 (Not fixed since previous scan)</td>
                 <td class="left" colspan="2">
             
                 <a href="https://vulners.com/cve/CVE-2021-44790">
@@ -367,7 +347,7 @@
             </tr>
             
             <tr>
-                <td>CVE-2021-39275</td>
+                <td>CVE-2021-39275 (Not fixed since previous scan)</td>
                 <td class="left" colspan="2">
             
                 <a href="https://vulners.com/cve/CVE-2021-39275">
@@ -379,7 +359,7 @@
             </tr>
             
             <tr>
-                <td>CVE-2021-26691</td>
+                <td>CVE-2021-26691 (Not fixed since previous scan)</td>
                 <td class="left" colspan="2">
             
                 <a href="https://vulners.com/cve/CVE-2021-26691">
@@ -391,7 +371,7 @@
             </tr>
             
             <tr>
-                <td>1337DAY-ID-34882</td>
+                <td>1337DAY-ID-34882 (Not fixed since previous scan)</td>
                 <td class="left" colspan="2">
             
                 <a href="https://vulners.com/zdt/1337DAY-ID-34882">
@@ -403,7 +383,7 @@
             </tr>
             
             <tr>
-                <td>FDF3DFA1-ED74-5EE2-BF5C-BA752CA34AE8</td>
+                <td>FDF3DFA1-ED74-5EE2-BF5C-BA752CA34AE8 (Not fixed since previous scan)</td>
                 <td class="left" colspan="2">
             
                 <a href="https://vulners.com/githubexploit/FDF3DFA1-ED74-5EE2-BF5C-BA752CA34AE8">
@@ -415,7 +395,7 @@
             </tr>
             
             <tr>
-                <td>CVE-2022-22721</td>
+                <td>CVE-2022-22721 (Not fixed since previous scan)</td>
                 <td class="left" colspan="2">
             
                 <a href="https://vulners.com/cve/CVE-2022-22721">
@@ -427,7 +407,7 @@
             </tr>
             
             <tr>
-                <td>CVE-2021-40438</td>
+                <td>CVE-2021-40438 (Not fixed since previous scan)</td>
                 <td class="left" colspan="2">
             
                 <a href="https://vulners.com/cve/CVE-2021-40438">
@@ -439,7 +419,7 @@
             </tr>
             
             <tr>
-                <td>CVE-2020-35452</td>
+                <td>CVE-2020-35452 (Not fixed since previous scan)</td>
                 <td class="left" colspan="2">
             
                 <a href="https://vulners.com/cve/CVE-2020-35452">
@@ -451,7 +431,19 @@
             </tr>
             
             <tr>
-                <td>4810E2D9-AC5F-5B08-BFB3-DDAFA2F63332</td>
+                <td>8AFB43C5-ABD4-52AD-BB19-24D7884FF2A2 (Not fixed since previous scan)</td>
+                <td class="left" colspan="2">
+            
+                <a href="https://vulners.com/githubexploit/8AFB43C5-ABD4-52AD-BB19-24D7884FF2A2">
+                    githubexploit : 8AFB43C5-ABD4-52AD-BB19-24D7884FF2A2 : EXPLOIT
+                <br></a>
+                
+                </td>
+                <td class="mid_">6.8</td>
+            </tr>
+            
+            <tr>
+                <td>4810E2D9-AC5F-5B08-BFB3-DDAFA2F63332 (Not fixed since previous scan)</td>
                 <td class="left" colspan="2">
             
                 <a href="https://vulners.com/githubexploit/4810E2D9-AC5F-5B08-BFB3-DDAFA2F63332">
@@ -463,7 +455,7 @@
             </tr>
             
             <tr>
-                <td>CVE-2021-44224</td>
+                <td>CVE-2021-44224 (Not fixed since previous scan)</td>
                 <td class="left" colspan="2">
             
                 <a href="https://vulners.com/cve/CVE-2021-44224">
@@ -475,7 +467,7 @@
             </tr>
             
             <tr>
-                <td>CVE-2020-1927</td>
+                <td>CVE-2020-1927 (Not fixed since previous scan)</td>
                 <td class="left" colspan="2">
             
                 <a href="https://vulners.com/cve/CVE-2020-1927">
@@ -487,7 +479,7 @@
             </tr>
             
             <tr>
-                <td>CVE-2020-9490</td>
+                <td>CVE-2020-9490 (Not fixed since previous scan)</td>
                 <td class="left" colspan="2">
             
                 <a href="https://vulners.com/metasploit/MSF:ILITIES/REDHAT_LINUX-CVE-2020-9490/">
@@ -531,7 +523,7 @@
             </tr>
             
             <tr>
-                <td>CVE-2020-1934</td>
+                <td>CVE-2020-1934 (Not fixed since previous scan)</td>
                 <td class="left" colspan="2">
             
                 <a href="https://vulners.com/metasploit/MSF:ILITIES/ORACLE-SOLARIS-CVE-2020-1934/">
@@ -547,7 +539,7 @@
             </tr>
             
             <tr>
-                <td>CVE-2022-22719</td>
+                <td>CVE-2022-22719 (Not fixed since previous scan)</td>
                 <td class="left" colspan="2">
             
                 <a href="https://vulners.com/cve/CVE-2022-22719">
@@ -559,7 +551,7 @@
             </tr>
             
             <tr>
-                <td>CVE-2021-36160</td>
+                <td>CVE-2021-36160 (Not fixed since previous scan)</td>
                 <td class="left" colspan="2">
             
                 <a href="https://vulners.com/cve/CVE-2021-36160">
@@ -571,7 +563,7 @@
             </tr>
             
             <tr>
-                <td>CVE-2021-34798</td>
+                <td>CVE-2021-34798 (Not fixed since previous scan)</td>
                 <td class="left" colspan="2">
             
                 <a href="https://vulners.com/cve/CVE-2021-34798">
@@ -583,7 +575,7 @@
             </tr>
             
             <tr>
-                <td>CVE-2021-33193</td>
+                <td>CVE-2021-33193 (Not fixed since previous scan)</td>
                 <td class="left" colspan="2">
             
                 <a href="https://vulners.com/cve/CVE-2021-33193">
@@ -595,7 +587,7 @@
             </tr>
             
             <tr>
-                <td>CVE-2021-30641</td>
+                <td>CVE-2021-30641 (Not fixed since previous scan)</td>
                 <td class="left" colspan="2">
             
                 <a href="https://vulners.com/cve/CVE-2021-30641">
@@ -607,7 +599,7 @@
             </tr>
             
             <tr>
-                <td>CVE-2021-26690</td>
+                <td>CVE-2021-26690 (Not fixed since previous scan)</td>
                 <td class="left" colspan="2">
             
                 <a href="https://vulners.com/cve/CVE-2021-26690">
@@ -619,7 +611,7 @@
             </tr>
             
             <tr>
-                <td>CVE-2020-13950</td>
+                <td>CVE-2020-13950 (Not fixed since previous scan)</td>
                 <td class="left" colspan="2">
             
                 <a href="https://vulners.com/cve/CVE-2020-13950">
@@ -631,7 +623,7 @@
             </tr>
             
             <tr>
-                <td>CVE-2019-17567</td>
+                <td>CVE-2019-17567 (Not fixed since previous scan)</td>
                 <td class="left" colspan="2">
             
                 <a href="https://vulners.com/cve/CVE-2019-17567">
@@ -643,7 +635,7 @@
             </tr>
             
             <tr>
-                <td>CVE-2020-11993</td>
+                <td>CVE-2020-11993 (Not fixed since previous scan)</td>
                 <td class="left" colspan="2">
             
                 <a href="https://vulners.com/metasploit/MSF:ILITIES/REDHAT_LINUX-CVE-2020-11993/">
@@ -675,7 +667,7 @@
             </tr>
             
             <tr>
-                <td>1337DAY-ID-35422</td>
+                <td>1337DAY-ID-35422 (Not fixed since previous scan)</td>
                 <td class="left" colspan="2">
             
                 <a href="https://vulners.com/zdt/1337DAY-ID-35422">
@@ -686,23 +678,117 @@
                 <td class="mid_">4.3</td>
             </tr>
             
-                    </tbody>
-                    </table>
-                    </div>
-                    
                     <tr>
                         <td class="no">111 (old)</td>
                         <td class="no">rpcbind</td>
-                        <td class="no">None</td>
+                        <td class="no"></td>
                         <td class="no">2-4</td>
                         <td class="no"></td>
                         <td class="no">0</td>
                     </tr>
                     
-                    </tbody>
-                    </table>
-                    </div>
+        <tr>
+            <td class="line" rowspan="2" colspan="2">Warning</td>
+            <td class="line" colspan="3"></td>
+            <td class="line"></td>
+        </tr>
+        <tr>
+            <td colspan="3">rpcbind is not in allowed services in configuration file</td>
+            <td></td>
+        </tr>
+        
+                    <tr>
+                        <td class="high">631 (new)</td>
+                        <td class="high">ipp</td>
+                        <td class="high">CUPS</td>
+                        <td class="high">2.3</td>
+                        <td class="high">cpe:/a:apple:cups:2.3</td>
+                        <td class="high">7.2</td>
+                    </tr>
                     
+        <tr>
+            <td class="line" rowspan="2" colspan="2">Warning</td>
+            <td class="line" colspan="3"></td>
+            <td class="line"></td>
+        </tr>
+        <tr>
+            <td colspan="3">ipp is not in allowed services in configuration file</td>
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td valign="top" colspan="2" rowspan="3" class="line_1">Vulners</td>
+            <td class="line_1">Name</td>
+            <td class="line_1" colspan="2">Database : ID : IsExploit</td>
+            <td class="line_1">CVSS</td>
+        </tr>
+        
+            <tr>
+                <td>MSF:POST/MULTI/ESCALATE/CUPS_ROOT_FILE_READ </td>
+                <td class="left" colspan="2">
+            
+                <a href="https://vulners.com/metasploit/MSF:POST/MULTI/ESCALATE/CUPS_ROOT_FILE_READ">
+                    metasploit : MSF:POST/MULTI/ESCALATE/CUPS_ROOT_FILE_READ : EXPLOIT
+                <br></a>
+                
+                </td>
+                <td class="high_">7.2</td>
+            </tr>
+            
+            <tr>
+                <td>CVE-2012-5519 </td>
+                <td class="left" colspan="2">
+            
+                <a href="https://vulners.com/cve/CVE-2012-5519">
+                    cve : CVE-2012-5519 : 
+                <br></a>
+                
+                </td>
+                <td class="high_">7.2</td>
+            </tr>
+            
+                    <tr>
+                        <td class="no">2049 (new)</td>
+                        <td class="no">nfs_acl</td>
+                        <td class="no"></td>
+                        <td class="no">3</td>
+                        <td class="no"></td>
+                        <td class="no">0</td>
+                    </tr>
+                    
+        <tr>
+            <td class="line" rowspan="2" colspan="2">Warning</td>
+            <td class="line" colspan="3"></td>
+            <td class="line"></td>
+        </tr>
+        <tr>
+            <td colspan="3">nfs_acl is not in allowed services in configuration file</td>
+            <td></td>
+        </tr>
+        
+                    <tr>
+                        <td class="no">5432 (new)</td>
+                        <td class="no">postgresql</td>
+                        <td class="no">PostgreSQL DB</td>
+                        <td class="no">9.6.0 or later</td>
+                        <td class="no">cpe:/a:postgresql:postgresql</td>
+                        <td class="no">0</td>
+                    </tr>
+                    
+        <tr>
+            <td class="line" rowspan="2" colspan="2">Warning</td>
+            <td class="line" colspan="3"></td>
+            <td class="line"></td>
+        </tr>
+        <tr>
+            <td colspan="3">postgresql is not in allowed services in configuration file</td>
+            <td></td>
+        </tr>
+        
+                </tbody>
+                </table>
+                </div>
+                
             </body>
             </html>
             
