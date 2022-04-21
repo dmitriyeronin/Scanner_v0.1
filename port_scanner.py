@@ -157,9 +157,9 @@ class CheckService:
         # Warning_|_Service_denied_in_configuration_file_|___
         html_data = f'''
         <tr>
-            <td class="line" rowspan="2" colspan="2">Warning</td>
-            <td class="line" colspan="3"></td>
-            <td class="line"></td>
+            <th rowspan="2" colspan="2">Warning</th>
+            <th colspan="3"></th>
+            <th></th>
         </tr>
         <tr>
             <td colspan="3">{vuln["results"]}</td>
@@ -221,10 +221,10 @@ class Vulners:
         # Vulners_|_Name_|_Database_:_ID_:_IsExploit_|_CVSS
         html_data = f'''
         <tr>
-            <td valign="top" colspan="2" rowspan="{len(vuln["results"]) + 1}" class="line_1">Vulners</td>
-            <td class="line_1">Name</td>
-            <td class="line_1" colspan="2">Database : ID : IsExploit</td>
-            <td class="line_1">CVSS</td>
+            <th valign="top" colspan="2" rowspan="{len(vuln["results"]) + 1}">Vulners</th>
+            <th>Name</th>
+            <th colspan="2">Database : ID : IsExploit</th>
+            <th>CVSS</th>
         </tr>
         '''
         for result_note in vuln["results"]:

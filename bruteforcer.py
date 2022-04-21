@@ -53,7 +53,9 @@ class Bruteforcer:
                         # 230=success; 530=incorrect
                         args = [self.path, "ftp_login", "host=" + host, "user=FILE0", "password=FILE1",
                                 "0=" + self.login_list, "1=" + self.pass_list,
-                                "-x", "free=user:code=230", "-x", "ignore:code=530", "--allow-ignore-failures",
+                                "-x", "free=user:code=230", "-x", "ignore:code=530",
+                                "-x", "ignore:code=503",
+                                "--allow-ignore-failures",
                                 "--csv=" + self.output_file]
                         self.start_bruteforce(args, port)
                     elif port["service"] == "mysql" and eval(self.config["mysql"]):
@@ -76,11 +78,12 @@ class Bruteforcer:
                                 "-x", "free=user:code=0", "-x", "ignore:code=1", "--allow-ignore-failures",
                                 "--csv=" + self.output_file]
                         self.start_bruteforce(args, port)
-                    elif port["service"] == "telnet"  and eval(self.config["telnet"]):
+                    elif port["service"] == "telnet" and eval(self.config["telnet"]):
                         args = [self.path, "telnet_login", "host=" + host, "inputs='FILE0\nFILE1'",
                                 "0=" + self.login_list, "1=" + self.pass_list,
                                 "persistent=0", "prompt_re='Username:|Password:'",
-                                "-x", "ignore:egrep='Login incorrect'", "-x", "ignore:code=500", "--allow-ignore-failures",
+                                "-x", "ignore:egrep=\'Login incorrect\'", "-x", "ignore:code=500",
+                                "--allow-ignore-failures",
                                 "--csv=" + self.output_file]
                         self.start_bruteforce(args, port)
                 except KeyError:
@@ -125,27 +128,29 @@ class Bruteforcer:
         # Bruteforcer_|_login:pass_|_Мessage_|___
         html_data = f'''
         <tr>
-            <td valign="top" colspan="2" rowspan="{len(vuln["results"]) + 1}" class="line_1">Bruteforcer</td>
-            <td class="line_1">"login:pass"</td>
-            <td class="line_1">Мessage</td>
-            <td class="line_1"></td>
+            <th valign="top" colspan="2" rowspan="{len(vuln["results"]) + 1}">Bruteforcer</th>
+            <th>login:pass</th>
+            <th colspan="2">Мessage</th>
+            <th></th>
         </tr>
         '''
+
         for result_note in vuln["results"]:
             cmp = ""
             if ls_results:
                 for ls_result_note in ls_results:
-                    if result_note["cve_id"] == ls_result_note["cve_id"]:
+                    if result_note["login:pass"] == ls_result_note["login:pass"]:
                         cmp = "(Not fixed since previous scan)"
             # Add bruteforces data
             # ___|_root:toor_|_mesg_|___
             html_data += f'''
             <tr>
                 <td>{result_note["login:pass"]} {cmp}</td>
-                <td>{result_note["mesg"]}</td>
+                <td colspan="2">{result_note["mesg"]}</td>
                 <td></td>
             </tr>
             '''
+
         return html_data
 
 

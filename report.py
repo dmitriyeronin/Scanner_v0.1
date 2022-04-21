@@ -66,17 +66,17 @@ class Report:
             for host_data in self.hosts_data:
                 host_cmp = ""
                 if self.compere:
-                    host_cmp = "new"
+                    host_cmp = "(new)"
                     for ls_host_data in ls_data:
                         if ls_host_data["host_address"]["address"] == host_data["host_address"]["address"]:
-                            host_cmp = "old"
+                            host_cmp = ""
                             break
 
                 lv = func.level(host_data["score"])
                 # Add hostblock and host address header
                 html_data += f'''
                 <a name="host_{host_data["host_address"]["address"]}"></a>
-                <h2 class={lv}>{host_data["host_address"]["address"]} ({host_cmp})</h2>
+                <h2 class={lv}>{host_data["host_address"]["address"]} {host_cmp}</h2>
                 <div id="hostblock_{host_data["host_address"]["address"]}">   
                 '''
                 # Add host names to report
@@ -89,7 +89,7 @@ class Report:
                 # Add os data to report
                 if host_data["os"]:
                     html_data += f'''
-                    <h3>Operation system</h3>
+                    <h3>Operating system</h3>
                     '''
                     for os in host_data["os"]:
                         html_data += f'''
@@ -113,13 +113,13 @@ class Report:
                 html_data += f'''
                 <table id="porttable_{host_data["host_address"]["address"]}">
                     <thead>
-                        <tr class="head">
-                            <td>Port</td>
-                            <td>Service</td>
-                            <td>Product</td>
-                            <td>Version</td>
-                            <td>CPE</td>
-                            <td>Score</td>
+                        <tr>
+                            <th>Port</th>
+                            <th>Service</th>
+                            <th>Product</th>
+                            <th>Version</th>
+                            <th>CPE</th>
+                            <th>Score</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -128,16 +128,16 @@ class Report:
                     port_cmp = ""
                     ls_port = None
                     if self.compere:
-                        port_cmp = "new"
+                        port_cmp = "(new)"
                         for ls_port in ls_host_data["open_ports"]:
                             if ls_port["port_id"] == port["port_id"]:
                                 ls_port = port
-                                port_cmp = "old"
+                                port_cmp = ""
                                 break
                     lv = func.level(port["score"])
                     html_data += f'''
                     <tr>
-                        <td class="{lv}">{port["port_id"]} ({port_cmp})</td>
+                        <td class="{lv}">{port["port_id"]} {port_cmp}</td>
                         <td class="{lv}">{port["service"]}</td>
                         <td class="{lv}">{port["product"]}</td>
                         <td class="{lv}">{port["version"]}</td>

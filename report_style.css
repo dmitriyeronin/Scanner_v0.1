@@ -1,6 +1,6 @@
 body {
     font-family: Verdana, Helvetica, sans-serif;
-    margin: 0px;
+    margin: 10px;
     background-color: #FFFFFF;
     color: #000000;
     text-align: center;
@@ -16,10 +16,8 @@ h1 {
     font-size: 14pt;
     color: #FFFFFF;
     background-color:#2A0D45;
-    margin:10px 0px 0px 0px;
-    padding:5px 4px 5px 4px;
+    padding:10px;
     width: 100%;
-    border:1px solid black;
     text-align: left;
 }
 h2 {
@@ -28,18 +26,15 @@ h2 {
     font-size: 11pt;
     color: #000000;
     margin:30px 0px 0px 0px;
-    padding:4px;
+    padding:6px;
     width: 100%;
-    background-color:#F0F8FF;
     text-align: left;
 }
 h3 {
     font-family: Verdana, Helvetica, sans-serif;
     font-weight:bold;
-    font-size: 10pt;
+    font-size: 12pt;
     color:#000000;
-    background-color: #FFFFFF;
-    width: 75%;
     text-align: left;
 }
 p {
@@ -58,121 +53,108 @@ p i {
 }
 ul {
     font-family: Verdana, Helvetica, sans-serif;
-    font-size: 8pt;
+    font-size: 11pt;
     color:#000000;
     background-color: #FFFFFF;
     width: 75%;
     text-align: left;
 }
-                          a {
-                            font-family: Verdana, Helvetica, sans-serif;
-                            text-decoration: none;
-                            font-size: 8pt;
-                            color:#000000;
-                            font-weight:bold;
-                            background-color: #FFFFFF;
-                            color: #000000;
-                          }
-                          li a {
-                            font-family: Verdana, Helvetica, sans-serif;
-                            text-decoration: none;
-                            font-size: 10pt;
-                            color:#000000;
-                            font-weight:bold;
-                            background-color: #FFFFFF;
-                            color: #000000;
-                          }
-                          a:hover {
-                            text-decoration: underline;
-                          }
+a {
+    font-family: Verdana, Helvetica, sans-serif;
+    #text-decoration: none;
+    #font-size: 9pt;
+    color:#000000;
+    font-weight:bold;
+    background-color: #FFFFFF;
+}
 
-                          table {
-                            width: 90%;
-                            border:0px;
-                            color: #000000;
-                            background-color: #ffffff;
-                            margin:10px;
-                          }
+a:hover {
+    text-decoration: underline;
+}
 
-                          thead {
-                            background-color: #555;
-                            color: #FFFFFF;
-                            font-size: 12pt;
-                            font-weight:bold;
-                          }
+table {
+    width: 100%;
+    color: #000000;
+    background-color: #ffffff;
+}
 
-                          tbody tr:nth-child(odd) {
-                              background-color: #fff;
-                              font-size: 8pt;
-                            }
+thead {
+    background-color: #333;
+    color: #FFFFFF;
+    font-size: 12pt;
+    font-weight:bold;
+}
+thead th{
+    padding: 8px;
+}
 
-                          tbody tr:nth-child(even) {
-                              background-color: #eee;
-                              font-size: 8pt;
-                            }
+tbody th{
+    background-color: #555;
+    color: #FFFFFF;
+    font-size: 11pt;
+    padding: 5px;
+}
+tbody td{
+  padding: 4px;
+  font-size: 10pt;
+}
 
+tbody tr:nth-child(odd) {
+    background-color: #fff;
+    font-size: 8pt;
+}
 
-                          .no {
-                            color:#000000;
-                            background-color: #b2ec5d;
-                            font-size: 12pt;
-                            font-weight:bold;
-                          }
-                          .low {
-                            color: #000000;
-                            background-color:#ffff66;
-                            font-size: 12pt;
-                            font-weight:bold;
-                          }
-                          .mid {
-                            color:#000000;
-                            background-color: #ff8c00;
-                            font-size: 12pt;
-                            font-weight:bold;
-                          }
-                          .high {
-                            color:#000000;
-                            background-color: #ff4500;
-                            font-size: 12pt;
-                            font-weight:bold;
-                          }
-                          .no_ {
-                            color:#00d600;
+tbody tr:nth-child(even) {
+    background-color: #eee;
+    font-size: 8pt;
+}
 
-                            font-weight:bold;
-                            font-size: 12pt;
-                          }
-                          .low_ {
-                            color: #eed202;
+.no {
+    color:#000000;
+    background-color: #b2ec5d;
+    font-size: 12pt;
+    font-weight:bold;
+}
+.low {
+    color: #000000;
+    background-color:#ffff66;
+    font-size: 12pt;
+    font-weight:bold;
+}
+.mid {
+    color:#000000;
+    background-color: #ff8c00;
+    font-size: 12pt;
+    font-weight:bold;
+}
+.high {
+    color:#000000;
+    background-color: #ff4500;
+    font-size: 12pt;
+    font-weight:bold;
+}
 
-                            font-weight:bold;
-                            font-size: 12pt;
-                          }
-                          .mid_ {
-                            color:#ff8c00;
+.no_ {
+    color:#00d600;
+    font-weight:bold;
+    font-size: 12pt;
+}
+.low_ {
+    color: #eed202;
+    font-weight:bold;
+    font-size: 12pt;
+}
+.mid_ {
+    color:#ff8c00;
+    font-weight:bold;
+    font-size: 12pt;
+}
+.high_ {
+    color:#ff0000;
+    font-weight:bold;
+    font-size: 12pt;
+}
 
-                            font-weight:bold;
-                            font-size: 12pt;
-                          }
-                          .high_ {
-                            color:#ff0000;
-
-                            font-weight:bold;
-                            font-size: 12pt;
-                        }
-                          .line {
-                            background-color: #555;
-                            color: #FFFFFF;
-                            font-size: 12pt;
-                            font-weight:bold;
-                          }
-                          .line_1 {
-                            background-color: #555;
-                            color: #FFFFFF;
-                            font-size: 12pt;
-                            font-weight:bold;
-                          }
-                          .left {
-                            text-align:left;
-                            padding    : 10px;
-                          }
+.left {
+    text-align:left;
+}
