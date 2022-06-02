@@ -5,7 +5,7 @@ import functions as func
 
 class PortScanner:
     def __init__(self, ps_config, ch_config):
-        self.path = "nmap"  # TODO: Full path
+        self.path = "nmap"
         self.output_file = "nmap_output.xml"
         self.ps_config = ps_config
         self.ch_config = ch_config

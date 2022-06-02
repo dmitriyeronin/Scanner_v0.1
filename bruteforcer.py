@@ -94,12 +94,13 @@ class Bruteforcer:
             pass
         print("STATUS:  Start bruteforce " + port["service"])
         try:
-            subprocess.run(
+            p = subprocess.run(
                 cmd,
                 bufsize=100000,
                 stdout=subprocess.DEVNULL,
                 stderr=subprocess.DEVNULL
             )
+            # print(p)
         except OSError:
             raise BruteforcerError("Failed to start password сracker.")
 

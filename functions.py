@@ -12,9 +12,8 @@ def level(score):
 
 
 def convert_time(seconds):
-    seconds = seconds % (24 * 3600)
-    hour = seconds // 3600
+    hours = seconds // 3600
     seconds %= 3600
     minutes = seconds // 60
     seconds %= 60
-    return "%dh %dmin %dsec" % (hour, minutes, seconds)
+    return "%dh %dmin %dsec" % (hours, minutes, seconds)

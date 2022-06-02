@@ -98,6 +98,7 @@ class Report:
                             <li>Vendor: {os["vendor"]}</li>
                             <li>Family: {os["family"]}</li>
                             <li>Generation: {os["gen"]}</li>
+                            <li>Name: {os["name"]}</li>
                             <li>Accuracy: {os["class_accuracy"]}</li>
                             <li>{os["cpe"]}</li>
                         </ul>
@@ -131,7 +132,7 @@ class Report:
                         port_cmp = "(new)"
                         for ls_port in ls_host_data["open_ports"]:
                             if ls_port["port_id"] == port["port_id"]:
-                                ls_port = port
+                                # ls_port = port
                                 port_cmp = ""
                                 break
                     lv = func.level(port["score"])
@@ -161,8 +162,8 @@ class Report:
             </body>
             </html>
             '''
-
-            ls_f.close()
+            if self.compere:
+                ls_f.close()
             f.write(html_data)
 
 
